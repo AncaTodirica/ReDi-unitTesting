@@ -9,9 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShopTest {
 
+
+    Shop shop = new Shop("MyShop");
+
+
     @Test
     void addingNewProduct_updatesTheListOfProducts() {
-        Shop shop = new Shop("MyShop");
         Product biscuits = new Product("biscuits", 2);
 
         shop.addNewProduct(biscuits);

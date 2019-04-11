@@ -1,8 +1,8 @@
 package shop;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Shop {
 
@@ -11,7 +11,8 @@ public class Shop {
     private List<Product> products;
 
     Shop(String name) {
-        //TODO
+        this.name = name;
+        products = new ArrayList<Product>();
     }
 
     String getName() {
@@ -23,18 +24,30 @@ public class Shop {
     }
 
     public void addNewProduct(Product product) {
-        //TODO implement method
+        products.add(product);
     }
 
     public void removeProductFromShelf(String name) {
-        //TODO implement method
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getName().equals(name)) {
+                products.remove(i);
+                break;
+            }
+        }
     }
 
     public List<Product> inventory() {
-        //TODO implement method
+        return products;
     }
 
     public List<Product> getCheapProducts() {
-        //TODO implement method
+        List<Product> cheapProducts = new ArrayList<Product>();
+        for (int i = 0; i < products.size(); i++) {
+            Product currentProduct = products.get(i);
+            if (currentProduct.getPrice() <= 2) {
+                cheapProducts.add(currentProduct);
+            }
+        }
+        return cheapProducts;
     }
 }
